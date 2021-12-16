@@ -31,8 +31,6 @@ module.exports = (app, passport, db) => {
 		}
 	}))
 
-    console.log(config.session_secret);
-
     app.use(session({
         secret: config.session_secret,
         store: MongoStore.create({
@@ -41,4 +39,7 @@ module.exports = (app, passport, db) => {
         resave: true,
         saveUninitialized: true
     }));
+
+    app.use(passport.initialize());
+    app.use(passport.session());
 }

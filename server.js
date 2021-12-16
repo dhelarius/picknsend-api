@@ -1,20 +1,15 @@
 require('dotenv').config();
 const express = require('express');
+const passport = require('passport');
 const db = require('./db');
 
 const port = process.env.PORT || 3001
 const app = express();
 
 const ds = require('./config/mongodb')(db);
-require('./config/express')(app, null, db);
-
-ds.createAndSaveUser({
-    name: 'Darío Jiménez',
-    age: 30,
-    favoriteFoods: ['Rice','Vegetables','Onion']
-  }, () => {
-    console.log('Usuario creado!');
-});
+require('./config/passport')(passport, ds);
+require('./config/express')(app, passport, db);
+require('./config/routes')(app, ds);
 
 const server = app.listen(port, () => {
 	if(app.get('env') === 'test') return

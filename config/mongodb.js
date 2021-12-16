@@ -2,28 +2,30 @@ const mongoose = require('mongoose');
 const { Schema } = require('mongoose');
 
 const userSchema = new Schema({
-    name: { type: String, required: true },
-    age: Number,
-    favoriteFoods: [String]
+    username: { type: String, required: true },
+    password: { type: String, required: true },
+    type: { type: String, required: true },
+    creationDate: { type: String },
+    active: { type: Boolean }
 });
 
 let User = mongoose.model('User', userSchema);
 
-const createAndSaveUser = (data, done) => {
+const createUser = (data, res) => {
     const user = new User(data);
-  
-    /*user.save((err, data) => {
-      if (err) return console.error(err);
-      done(null , data);
-    })*/
-
-    user.save().then(done());
+    user.save().then(() => res.status(200).json({ message: 'El usuario ha sido creado exitosamente!' }))
+               .catch(() => res.json({ message: 'Un error ha ocurrido al intentar crear el usuario!' }));
 };
+
+const findUserByUsername = (username) => {
+    return User.find({ name: username });
+}
 
 module.exports = (db) => {
     mongoose.connect(db.uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
     return {
-        createAndSaveUser
+        createUser,
+        findUserByUsername
     }
 }
