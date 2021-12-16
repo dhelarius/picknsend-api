@@ -2,7 +2,7 @@ const { body, validationResult } = require('express-validator');
 const users = require('../app/users/index');
 
 module.exports = (app, passport, ds) => {
-    app.post('/user/create', 
+    app.post('/signup', 
     /*body('username').custom(value => {
         return ds.findUserByUsername(value).then(user => {
             if (user) {
