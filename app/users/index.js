@@ -1,4 +1,5 @@
-const signUp = require('../../adapter/security/bcrypt/index')
+const { createUser, decrypt } = require('../../adapter/security/bcrypt/index');
+const { generateAccessToken } = require('../../adapter/security/jwt/index');
 
 module.exports = {
     signUp: (ds, validationResult) => (req, res) => {
@@ -7,6 +8,19 @@ module.exports = {
             return res.status(400).json({ errors: errors.array() });
         }
 
-        signUp(req.body, ds, res);
-    }
+        createUser(req.body, ds, res);
+    },
+
+    login: (ds) => async (req, res) => {
+        const { username, password } = req.body;
+
+        const user = await ds.findUserByUsername(username);
+        const match  = await decrypt(password, user[0].password);
+
+        const token = generateAccessToken(username);
+
+        if (match) {
+            res.json({ token: token });
+        }
+    } 
 }

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = require('mongoose');
 
 const userSchema = new Schema({
-    username: { type: String, required: true },
+    username: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     type: { type: String, required: true },
     creationDate: { type: String },
@@ -17,8 +17,10 @@ const createUser = (data, res) => {
                .catch(() => res.json({ message: 'Un error ha ocurrido al intentar crear el usuario!' }));
 };
 
-const findUserByUsername = (username) => {
-    return User.find({ name: username });
+const findUserByUsername = (username) => User.find({ name: username });
+
+const findUser = (username, password) => {
+    return User.findOne({ name: username, password: password });
 }
 
 module.exports = (db) => {
@@ -26,6 +28,7 @@ module.exports = (db) => {
 
     return {
         createUser,
-        findUserByUsername
+        findUserByUsername,
+        findUser
     }
 }

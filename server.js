@@ -9,7 +9,7 @@ const app = express();
 const ds = require('./config/mongodb')(db);
 require('./config/passport')(passport, ds);
 require('./config/express')(app, passport, db);
-require('./config/routes')(app, ds);
+require('./config/routes')(app, passport, ds);
 
 const server = app.listen(port, () => {
 	if(app.get('env') === 'test') return
