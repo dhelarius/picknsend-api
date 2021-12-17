@@ -50,6 +50,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["nodemon", "npm:2.0.15"],
             ["passport", "npm:0.5.0"],
             ["passport-http-bearer", "npm:1.0.1"],
+            ["passport-local", "npm:1.0.0"],
             ["winston", "npm:3.3.3"]
           ],
           "linkType": "SOFT",
@@ -2563,6 +2564,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["passport-local", [
+        ["npm:1.0.0", {
+          "packageLocation": "./.yarn/cache/passport-local-npm-1.0.0-ed89961a0c-86dc08b12f.zip/node_modules/passport-local/",
+          "packageDependencies": [
+            ["passport-local", "npm:1.0.0"],
+            ["passport-strategy", "npm:1.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["passport-strategy", [
         ["npm:1.0.0", {
           "packageLocation": "./.yarn/cache/passport-strategy-npm-1.0.0-5648a82a66-5086693f25.zip/node_modules/passport-strategy/",
@@ -2619,6 +2630,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["nodemon", "npm:2.0.15"],
             ["passport", "npm:0.5.0"],
             ["passport-http-bearer", "npm:1.0.1"],
+            ["passport-local", "npm:1.0.0"],
             ["winston", "npm:3.3.3"]
           ],
           "linkType": "SOFT",

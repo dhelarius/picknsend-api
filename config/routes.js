@@ -10,8 +10,9 @@ module.exports = (app, passport, ds) => {
             }
         });
     }),*/
-    body('password').isLength({ min: 6 }), 
-    users.signUp(ds, validationResult));
+    body('password').isLength({ min: 6 }),
+    passport.authenticate('signup', { session: false }),
+    users.signup(validationResult));
 
     app.post('/user/authenticate', users.login(ds));
 

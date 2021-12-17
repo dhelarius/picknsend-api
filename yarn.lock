@@ -2166,6 +2166,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"passport-local@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "passport-local@npm:1.0.0"
+  dependencies:
+    passport-strategy: 1.x.x
+  checksum: 86dc08b12f05f0ce1bb109780ccb0377eff45bbba70aa9c0d65f092b3ef476d344c0443517db2e9f3e5ec0ca849171ab25fb622164e0f69a677173af42b9bba7
+  languageName: node
+  linkType: hard
+
 "passport-strategy@npm:1.x.x":
   version: 1.0.0
   resolution: "passport-strategy@npm:1.0.0"
@@ -2223,6 +2232,7 @@ __metadata:
     nodemon: ^2.0.15
     passport: ^0.5.0
     passport-http-bearer: ^1.0.1
+    passport-local: ^1.0.0
     winston: ^3.3.3
   languageName: unknown
   linkType: soft

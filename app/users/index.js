@@ -2,20 +2,16 @@ const { decrypt } = require('../../adapter/security/crypt/bcrypt');
 const { generateAccessToken } = require('../../adapter/security/token/jwt');
 
 module.exports = {
-    signUp: (ds, validationResult) => async (req, res) => {
+    signup: (validationResult) => async (req, res) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
         }
 
-        const user = await ds.createUser(req.body);
         res.status(200).json({
             message: 'Signup successful',
             user: {
-                username: user.username,
-                type: user.type,
-                creationDate: user.creationDate,
-                active: user.active
+                username: req.body.username
             }
         });
     },
