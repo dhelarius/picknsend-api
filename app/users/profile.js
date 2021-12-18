@@ -3,6 +3,7 @@ module.exports = {
         res.json({
             message: 'Usuario obtenido a travéz de una ruta segura',
             user: req.user,
+            token: req.query.secret_token
         })
     },
 
