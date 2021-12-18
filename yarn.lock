@@ -2157,15 +2157,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"passport-http-bearer@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "passport-http-bearer@npm:1.0.1"
-  dependencies:
-    passport-strategy: 1.x.x
-  checksum: d2f3a7ee33a38e41bae99ef103d4a45e1cf8bedea68aab708f54088f285d9f7ed8888616f8364fdcd5c55944c2b68f88b258a1f8dd6120bf7a1550bb8c7a4ee7
-  languageName: node
-  linkType: hard
-
 "passport-jwt@npm:^4.0.0":
   version: 4.0.0
   resolution: "passport-jwt@npm:4.0.0"
@@ -2241,7 +2232,6 @@ __metadata:
     morgan: ^1.10.0
     nodemon: ^2.0.15
     passport: ^0.5.0
-    passport-http-bearer: ^1.0.1
     passport-jwt: ^4.0.0
     passport-local: ^1.0.0
     winston: ^3.3.3

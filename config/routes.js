@@ -26,7 +26,7 @@ module.exports = (app, passport, ds) => {
     passport.authenticate('signup', { session: false }),
     users.signup);
 
-    router.post('/login', users.login(passport));
+    router.post('/login', passport.authenticate('login', { session: false }), users.login(passport));
 
     router.get('/logout', users.logout);
 

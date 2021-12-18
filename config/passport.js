@@ -1,5 +1,4 @@
 const winston = require('winston');
-const BearerStrategy = require('passport-http-bearer').Strategy;
 const LocalStrategy = require('passport-local').Strategy;
 const JWTstrategy = require('passport-jwt').Strategy;
 const ExtractJWT = require('passport-jwt').ExtractJwt;
@@ -12,14 +11,8 @@ module.exports = (passport, ds) => {
             passwordField: 'password'
         }, async (username, password, done) => {
             try {
-                const data = {
-                    username,
-                    password,
-                    type: 'administrator',
-                    creationDate: '16/12/2021',
-                    active: true
-                }
-                const user = await ds.createUser(data);
+                
+                const user = await ds.createUser({ username, password });
 
                 return done(null, user);
             } catch(error) {
@@ -36,16 +29,16 @@ module.exports = (passport, ds) => {
                 const user = await ds.findUserByUsername(username);
 
                 if(!user) {
-                    return done(null, false, { message: 'User not found' });
+                    return done(null, false, { message: 'Usuario no encontrado' });
                 }
 
                 const validate = await user.isValidPassword(password);
 
                 if(!validate) {
-                    return done(null, false, { message: 'Wrong password!' });
+                    return done(null, false, { message: 'Contraseña incorrecta!' });
                 }
 
-                return done(null, user, { message: 'Logged in Successfully' })
+                return done(null, user, { message: 'Sesión iniciada' })
             } catch(error) {
                 return done(error);
             }

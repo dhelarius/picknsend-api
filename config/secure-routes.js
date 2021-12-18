@@ -1,14 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const profile = require('../app/users/profile');
 
-router.get('/profile',
-    (req, res, next) => {
-        res.json({
-            message: 'You made it to the secure route',
-            user: req.user,
-            token: req.query.secret_token
-        })
-    }
-);
+module.exports = (account, ds) => {
+    router.get('/profile', profile.user);
 
-module.exports = router;
+    router.put('/account/password', account.isValidPassword, profile.changePassword(ds));
+
+    return router;
+}

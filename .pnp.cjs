@@ -49,7 +49,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["morgan", "npm:1.10.0"],
             ["nodemon", "npm:2.0.15"],
             ["passport", "npm:0.5.0"],
-            ["passport-http-bearer", "npm:1.0.1"],
             ["passport-jwt", "npm:4.0.0"],
             ["passport-local", "npm:1.0.0"],
             ["winston", "npm:3.3.3"]
@@ -2555,16 +2554,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["passport-http-bearer", [
-        ["npm:1.0.1", {
-          "packageLocation": "./.yarn/cache/passport-http-bearer-npm-1.0.1-482b7dfd57-d2f3a7ee33.zip/node_modules/passport-http-bearer/",
-          "packageDependencies": [
-            ["passport-http-bearer", "npm:1.0.1"],
-            ["passport-strategy", "npm:1.0.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["passport-jwt", [
         ["npm:4.0.0", {
           "packageLocation": "./.yarn/cache/passport-jwt-npm-4.0.0-1bcfa2e3a3-d0499ebb81.zip/node_modules/passport-jwt/",
@@ -2641,7 +2630,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["morgan", "npm:1.10.0"],
             ["nodemon", "npm:2.0.15"],
             ["passport", "npm:0.5.0"],
-            ["passport-http-bearer", "npm:1.0.1"],
             ["passport-jwt", "npm:4.0.0"],
             ["passport-local", "npm:1.0.0"],
             ["winston", "npm:3.3.3"]

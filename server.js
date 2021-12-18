@@ -10,7 +10,7 @@ const ds = require('./config/mongodb')(db);
 require('./config/passport')(passport, ds);
 require('./config/express')(app, passport, db);
 const routes = require('./config/routes')(app, passport, ds);
-const secureRoutes = require('./config/secure-routes'); 
+const secureRoutes = require('./config/secure-routes')(require('./app/users/middlewares/account')(ds), ds);
 
 app.use('/api', routes);
 app.use('/user', passport.authenticate('jwt', { session: false }), secureRoutes);

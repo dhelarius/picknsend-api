@@ -2,10 +2,15 @@ const { generateAccessToken } = require('../../adapter/security/token/jwt');
 
 module.exports = {
     signup:  async (req, res, next) => {
-        res.status(200).json({
-            message: 'Signup successful',
-            user: req.user
-        });
+
+        let user = req.user;
+
+        user.password = undefined;
+
+        res.json({
+            message: 'Usuario registrado',
+            user
+        }).status(201);
     },
 
     login: (passport) => async (req, res, next) => {
@@ -14,7 +19,7 @@ module.exports = {
             async (err, user, info) => {
                 try {
                     if (err || !user) {
-                        const error = new Error('An error occurred.');
+                        const error = new Error('Ha ocurrido un error.');
             
                         return next(error);
                     }
