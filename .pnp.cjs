@@ -50,6 +50,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["nodemon", "npm:2.0.15"],
             ["passport", "npm:0.5.0"],
             ["passport-http-bearer", "npm:1.0.1"],
+            ["passport-jwt", "npm:4.0.0"],
             ["passport-local", "npm:1.0.0"],
             ["winston", "npm:3.3.3"]
           ],
@@ -2564,6 +2565,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["passport-jwt", [
+        ["npm:4.0.0", {
+          "packageLocation": "./.yarn/cache/passport-jwt-npm-4.0.0-1bcfa2e3a3-d0499ebb81.zip/node_modules/passport-jwt/",
+          "packageDependencies": [
+            ["passport-jwt", "npm:4.0.0"],
+            ["jsonwebtoken", "npm:8.5.1"],
+            ["passport-strategy", "npm:1.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["passport-local", [
         ["npm:1.0.0", {
           "packageLocation": "./.yarn/cache/passport-local-npm-1.0.0-ed89961a0c-86dc08b12f.zip/node_modules/passport-local/",
@@ -2630,6 +2642,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["nodemon", "npm:2.0.15"],
             ["passport", "npm:0.5.0"],
             ["passport-http-bearer", "npm:1.0.1"],
+            ["passport-jwt", "npm:4.0.0"],
             ["passport-local", "npm:1.0.0"],
             ["winston", "npm:3.3.3"]
           ],

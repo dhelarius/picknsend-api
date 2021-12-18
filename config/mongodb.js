@@ -35,18 +35,13 @@ const createUser = (data) => {
     return user.save();
 };
 
-const findUserByUsername = (username) => User.find({ name: username });
-
-const findUser = (username, password) => {
-    return User.findOne({ name: username, password: password });
-}
+const findUserByUsername = (username) => User.findOne({ name: username });
 
 module.exports = (db) => {
     mongoose.connect(db.uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
     return {
         createUser,
-        findUserByUsername,
-        findUser
+        findUserByUsername
     }
 }

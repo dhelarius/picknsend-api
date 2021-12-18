@@ -1,7 +1,8 @@
 const jwt = require('jsonwebtoken');
+const config = require('../../../config');
 
-function generateAccessToken(username) {
-    return jwt.sign({ id: username }, process.env.TOKEN_SECRET, { expiresIn: '1800s' });
+function generateAccessToken(user) {
+    return jwt.sign({ user }, config.token_secret, { expiresIn: '1800s' });
 }
 
 module.exports = {

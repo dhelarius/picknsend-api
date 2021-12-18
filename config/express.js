@@ -34,10 +34,11 @@ module.exports = (app, passport, db) => {
     app.use(session({
         secret: config.session_secret,
         store: MongoStore.create({
-            mongoUrl: db.uri
+            mongoUrl: db.uri,
+            //touchAfter: 24 * 3600
         }),
-        resave: true,
-        saveUninitialized: true
+        resave: false,
+        saveUninitialized: false
     }));
 
     app.use(passport.initialize());

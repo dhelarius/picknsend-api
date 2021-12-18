@@ -9,7 +9,11 @@ const app = express();
 const ds = require('./config/mongodb')(db);
 require('./config/passport')(passport, ds);
 require('./config/express')(app, passport, db);
-require('./config/routes')(app, passport, ds);
+const routes = require('./config/routes')(app, passport, ds);
+const secureRoutes = require('./config/secure-routes'); 
+
+app.use('/api', routes);
+app.use('/user', passport.authenticate('jwt', { session: false }), secureRoutes);
 
 const server = app.listen(port, () => {
 	if(app.get('env') === 'test') return

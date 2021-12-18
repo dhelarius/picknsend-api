@@ -1,22 +1,34 @@
 const { body, validationResult } = require('express-validator');
+const express = require('express');
 const users = require('../app/users/index');
 
+const router = express.Router();
+
 module.exports = (app, passport, ds) => {
-    app.post('/signup', 
-    /*body('username').custom(value => {
+
+    router.post('/signup', 
+    body('username').custom(value => {
         return ds.findUserByUsername(value).then(user => {
             if (user) {
                 return Promise.reject('El usuario ya está en uso');
             }
         });
-    }),*/
+    }),
     body('password').isLength({ min: 6 }),
+    (req, res, next) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+
+        next();
+    },
     passport.authenticate('signup', { session: false }),
-    users.signup(validationResult));
+    users.signup);
 
-    app.post('/user/authenticate', users.login(ds));
+    router.post('/login', users.login(passport));
 
-    app.get('/user/greeting', passport.authenticate('login', { session: false }), (req, res) => {
-        res.json({ greeting: 'Hello, Darío Jiménez!' });
-    });
+    router.get('/logout', users.logout);
+
+    return router;
 }
