@@ -38,6 +38,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["bcrypt", "npm:5.0.1"],
             ["body-parser", "npm:1.19.1"],
             ["connect-mongo", "virtual:1cf5090d8e7be492626bc9b52fec4fe7868c60524518654ad749e31874ea9a7604b86bb5756dff7faa2892a321360e197bdea726a442f2c5fb69ff3089d2b993#npm:4.6.0"],
+            ["cors", "npm:2.8.5"],
             ["dotenv", "npm:10.0.0"],
             ["express", "npm:4.17.1"],
             ["express-session", "npm:1.17.2"],
@@ -823,6 +824,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/cookie-signature-npm-1.0.6-93f325f7f0-f4e1b0a98a.zip/node_modules/cookie-signature/",
           "packageDependencies": [
             ["cookie-signature", "npm:1.0.6"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["cors", [
+        ["npm:2.8.5", {
+          "packageLocation": "./.yarn/cache/cors-npm-2.8.5-c9935a2d12-ced838404c.zip/node_modules/cors/",
+          "packageDependencies": [
+            ["cors", "npm:2.8.5"],
+            ["object-assign", "npm:4.1.1"],
+            ["vary", "npm:1.1.2"]
           ],
           "linkType": "HARD",
         }]
@@ -2463,6 +2475,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["object-assign", [
+        ["npm:4.1.1", {
+          "packageLocation": "./.yarn/cache/object-assign-npm-4.1.1-1004ad6dec-fcc6e4ea8c.zip/node_modules/object-assign/",
+          "packageDependencies": [
+            ["object-assign", "npm:4.1.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["on-finished", [
         ["npm:2.3.0", {
           "packageLocation": "./.yarn/cache/on-finished-npm-2.3.0-4ce92f72c6-1db595bd96.zip/node_modules/on-finished/",
@@ -2619,6 +2640,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["bcrypt", "npm:5.0.1"],
             ["body-parser", "npm:1.19.1"],
             ["connect-mongo", "virtual:1cf5090d8e7be492626bc9b52fec4fe7868c60524518654ad749e31874ea9a7604b86bb5756dff7faa2892a321360e197bdea726a442f2c5fb69ff3089d2b993#npm:4.6.0"],
+            ["cors", "npm:2.8.5"],
             ["dotenv", "npm:10.0.0"],
             ["express", "npm:4.17.1"],
             ["express-session", "npm:1.17.2"],

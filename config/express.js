@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
+const cors = require('cors');
 const config = require('./');
 
 const mode = process.env.NODE_ENV || 'development'
@@ -19,6 +20,8 @@ module.exports = (app, passport, db) => {
 	}
 
     if (mode !== 'test') app.use(morgan(log));
+
+    app.use(cors());
 
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended: true}));

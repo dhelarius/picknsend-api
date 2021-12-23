@@ -13,7 +13,7 @@ const routes = require('./config/routes')(app, passport, ds);
 const secureRoutes = require('./config/secure-routes')(require('./app/users/middlewares/account')(ds), ds);
 
 app.use('/api', routes);
-app.use('/user', passport.authenticate('jwt', { session: false }), secureRoutes);
+app.use('/api/user', passport.authenticate('jwt', { session: false }), secureRoutes);
 
 const server = app.listen(port, () => {
 	if(app.get('env') === 'test') return

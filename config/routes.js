@@ -14,7 +14,7 @@ module.exports = (app, passport, ds) => {
             }
         });
     }),
-    body('password').isLength({ min: 6 }),
+    body('password').isLength({ min: 8 }),
     (req, res, next) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
